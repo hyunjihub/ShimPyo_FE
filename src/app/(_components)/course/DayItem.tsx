@@ -1,6 +1,7 @@
 import CategoryTimeItem from './CategoryTimeItem';
 import { ICourse } from '@/app/(_utils)/type';
 import Image from 'next/image';
+import NoCourse from './NoCourse';
 import SpotItem from '../course/SpotItem';
 import comma from '/public/images/icons/course/comma.svg';
 import fullComma from '/public/images/icons/course/fullComma.svg';
@@ -30,28 +31,32 @@ export default function DayItem({ isEditable, day, course, setCourse, idx }: Day
           </div>
         </div>
       </div>
-      <div className="pt-[28px] pb-[40px] border-b border-[#E2E2E2] flex items-start gap-[8px]">
-        <ul>
-          {list.map((spot, index) => (
-            <CategoryTimeItem key={index} isLast={index === list.length - 1} time={spot.time as string} />
-          ))}
-        </ul>
-        <ul className="flex flex-col gap-[18px]">
-          {list.map((spot, idx) => (
-            <SpotItem
-              key={idx}
-              isEditable={isEditable}
-              isPreview={false}
-              spot={spot}
-              course={course}
-              setCourse={setCourse}
-              idx={idx}
-              day={day}
-              type="list"
-            />
-          ))}
-        </ul>
-      </div>
+      {list.length > 0 ? (
+        <div className="pt-[28px] pb-[40px] border-b border-[#E2E2E2] flex items-start gap-[8px]">
+          <ul>
+            {list.map((spot, index) => (
+              <CategoryTimeItem key={index} isLast={index === list.length - 1} time={spot.time as string} />
+            ))}
+          </ul>
+          <ul className="flex flex-col gap-[18px]">
+            {list.map((spot, idx) => (
+              <SpotItem
+                key={idx}
+                isEditable={isEditable}
+                isPreview={false}
+                spot={spot}
+                course={course}
+                setCourse={setCourse}
+                idx={idx}
+                day={day}
+                type="list"
+              />
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <NoCourse />
+      )}
     </li>
   );
 }
