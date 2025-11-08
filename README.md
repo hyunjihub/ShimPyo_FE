@@ -2,7 +2,7 @@
   
   ![Image](https://github.com/user-attachments/assets/11680e73-00c3-464e-b61e-ab2e77967999)
   
-  2025 관광데이터 활용 공모전 출품작
+  2025 관광데이터 활용 공모전 '장려상' 수상
   
   https://www.shimpyo.site/
 
